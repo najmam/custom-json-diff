@@ -6,4 +6,5 @@ Changes :
 - - upon an `add` or `replace` operation, retain the new value in a `newValue` property
 - - upon a `remove` or `replace` operation, retain the new value in an `oldValue` property
 - - if values of a field referred to by an identical path are equal (according to `lodash.isEqual`) across the compared objects, this is considered as a `keep` operation. Both `newValue` and `oldValue` are defined
-- the diff behavior is unchanged for nodes
+- no change for non-leaf nodes
+
