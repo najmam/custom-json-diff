@@ -1,27 +1,25 @@
 {
-  "name": "rfc6902-json-diff",
-  "version": "0.1.2",
-  "description": "JSON diff according to RFC6902",
+  "name": "custom-json-diff",
+  "version": "0.1.0",
+  "description": "JSON diff (doesn't respect any RFC) listing add/replace/remove/keep operations and old/new values",
   "main": "lib/diff.js",
   "scripts": {
     "test": "node_modules/.bin/mocha"
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:CQQL/rfc6902-json-diff-js.git"
+    "url": "git@github.com:pascience/custom-json-diff.git"
   },
   "keywords": [
     "json",
-    "diff",
-    "rfc",
-    "6902"
+    "diff"
   ],
-  "author": "Marten Lienen",
+  "author": "Naji Mammeri",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/CQQL/rfc6902-json-diff-js/issues"
+    "url": "https://github.com/pascience/custom-json-diff/issues"
   },
-  "homepage": "https://github.com/CQQL/rfc6902-json-diff-js",
+  "homepage": "https://github.com/pascience/custom-json-diff",
   "dependencies": {
     "json-pointer": "^0.2",
     "lodash": "^3.1.0"
