@@ -1,5 +1,5 @@
 
-This is a modification upon [`rfc6902-json-diff`](https://github.com/cqql/rfc6902-json-diff-js) that *doesn't* satisfy RFC6902.
+This is a modification upon [`rfc6902-json-diff`](https://github.com/cqql/rfc6902-json-diff-js) that **doesn't** satisfy RFC6902.
 
 Changes :
 - for leaf operations
