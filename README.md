@@ -1,40 +1,9 @@
-# JSON diff according to RFC6902
 
-[![Build Status](https://travis-ci.org/CQQL/rfc6902-json-diff-js.svg?branch=master)](https://travis-ci.org/CQQL/rfc6902-json-diff-js)
+This is a modification upon [`rfc6902-json-diff`](https://github.com/cqql/rfc6902-json-diff-js) that *doesn't* satisfy RFC6902.
 
-Diff two JS objects and receive an [RFC6902](http://tools.ietf.org/html/rfc6902)
-JSON patch.
-
-```js
-var diff = require("rfc6902-json-diff");
-
-var patch = diff(
-  { name: "CQQL", age: 21, likes: ["api stuff"] },
-  { name: "CQQL", age: 22, likes: ["api stuff", "json"] }
-);
-
-console.log(patch);
-//=> [{ op: "replace", path: "/age", value: 22 },
-//=>  { op: "add", path: "/likes/1", value: "json" }]
-```
-
-## Implementation
-
-The current implementation only uses the `add`, `remove` and `replace`
-operation. Usage of `move` and `copy` can and may be added later and I am always
-open for pull requests, but they are not needed to generate patches for every
-possible modification. Your patches will just be a bit bigger, than they would
-be with `move` and `copy`.
-
-Arrays are diffed with the
-[Levenshtein distance](http://en.wikipedia.org/wiki/Levenshtein_distance). This
-gives us
-
-```js
-diff([1, 2, 3, 4, 5, 6], [1, 5, 2, 3, 4, 6]) == [
-  { op: "add", path: "/1", value: 5 },
-  { op: "remove", path: "/5" }
-]
-```
-
-instead of 5 `replace` operations.
+Changes :
+- for leaf operations
+- - upon an `add` or `replace` operation, retain the new value in a `newValue` property
+- - upon a `remove` or `replace` operation, retain the new value in an `oldValue` property
+- - if values of a field referred to by an identical path are equal (according to `lodash.isEqual`) across the compared objects, this is considered as a `keep` operation. Both `newValue` and `oldValue` are defined
+- the diff behavior is unchanged for nodes
